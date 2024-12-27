@@ -1,0 +1,11 @@
+{
+  "name": "rummikub-leg",
+  "version": "1.0.0",
+  "description": "Replacement leg for Rummikub board game set",
+  "main": "index.js",
+  "author": "Will Duff",
+  "license": "MIT",
+  "dependencies": {
+    "@jscad/modeling": "^2.12.4"
+  }
+}

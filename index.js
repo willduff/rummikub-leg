@@ -1,4 +1,4 @@
-const { cube, sphere, roundedCuboid } = require('@jscad/modeling').primitives
+const { roundedCuboid } = require('@jscad/modeling').primitives
 const { rotateX, rotateY, translate } = require('@jscad/modeling').transforms
 const { degToRad } = require('@jscad/modeling').utils
 const { union } = require('@jscad/modeling').booleans
@@ -36,8 +36,8 @@ const main = (params) => {
 
 const getParameterDefinitions = () => {
     return [
-        { name: 'straightWidth',  type: 'number', initial: 58,   caption: 'Straight Section: Width in mm' },
-        { name: 'straightDepth',  type: 'number', initial: 8,    caption: 'Straight Section: Depth in mm' },
+        { name: 'straightWidth',  type: 'number', initial: 56,   caption: 'Straight Section: Width in mm' },
+        { name: 'straightDepth',  type: 'number', initial: 7.5,    caption: 'Straight Section: Depth in mm' },
         { name: 'straightHeight', type: 'number', initial: 2.5,  caption: 'Straight Section: Height in mm' },
 
         { name: 'roundRadius',    type: 'number', initial: 1.2,  caption: 'Straight Section: Radius of extrusion in mm' },
