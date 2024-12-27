@@ -1,11 +1,12 @@
 const { cube, sphere, roundedCuboid } = require('@jscad/modeling').primitives
+const { rotateX } = require('@jscad/modeling').transforms
+const { degToRad } = require('@jscad/modeling').utils
  
-const rummikubLegSection = (params) => { // called from main() below
-  var shapes = []
-  shapes.push(
-    roundedCuboid(params)
-  )
-  return shapes
+const rummikubLegSection = (params) => {
+  return [
+    roundedCuboid(params),
+    rotateX(degToRad(90), roundedCuboid(params)),
+  ]
 }
 
 const main = (params) => {
@@ -20,11 +21,11 @@ const main = (params) => {
 
 const getParameterDefinitions = () => {
     return [
-        { name: 'straightWidth',  type: 'int',    initial: 50,   caption: 'Straight Section: Width in mm' },
-        { name: 'straightDepth',  type: 'int',    initial: 6.5,  caption: 'Straight Section: Depth in mm' },
-        { name: 'straightHeight', type: 'int',    initial: 2,    caption: 'Straight Section: Height in mm' },
-        { name: 'roundRadius',    type: 'number', initial: 0.96, caption: 'Straight Section: Radius of extrusion in mm' },
-        { name: 'segments',       type: 'int',    initial: 32,   caption: 'Straight Section: Number of segments used to round extrusion' },
+        { name: 'straightWidth',  type: 'number', initial: 10,   caption: 'Straight Section: Width in mm' },
+        { name: 'straightDepth',  type: 'number', initial: 7.5,  caption: 'Straight Section: Depth in mm' },
+        { name: 'straightHeight', type: 'number', initial: 2.5,    caption: 'Straight Section: Height in mm' },
+        { name: 'roundRadius',    type: 'number', initial: 1.2, caption: 'Straight Section: Radius of extrusion in mm' },
+        { name: 'segments',       type: 'int',    initial: 16,   caption: 'Straight Section: Number of segments used to round extrusion' },
 
         { name: 'angle', type: 'int', initial: 100, caption: 'Angled Section: Angle in ??' },
     ]
